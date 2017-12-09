@@ -53,3 +53,105 @@ cafe babe 0000 0033 0018 0a00 0400 1409
 0600 0500 0600 0100 0100 1200 0000 0200
 13
 ```
+
+### 分析下结构
+```
+ClassFile {
+    u4             magic;
+    u2             minor_version;
+    u2             major_version;
+    u2             constant_pool_count;
+    cp_info        constant_pool[constant_pool_count-1];
+    u2             access_flags;
+    u2             this_class;
+    u2             super_class;
+    u2             interfaces_count;
+    u2             interfaces[interfaces_count];
+    u2             fields_count;
+    field_info     fields[fields_count];
+    u2             methods_count;
+    method_info    methods[methods_count];
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
+```
+
+常量池大小u2是0x0018，16进制即：24，由于是从1开始，所以大小为23个
+紧接着我们分析常量池中的第一个常量，第一位u1类型的标志位
+
+下边是引用https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html
+jvm官方文档里的部分说明常量池的项目类型：
+```
+Table 4.3. Constant pool tags
+Constant Type	Value
+CONSTANT_Class	7
+CONSTANT_Fieldref	9
+CONSTANT_Methodref	10
+CONSTANT_InterfaceMethodref	11
+CONSTANT_String	8
+CONSTANT_Integer	3
+CONSTANT_Float	4
+CONSTANT_Long	5
+CONSTANT_Double	6
+CONSTANT_NameAndType	12
+CONSTANT_Utf8	1
+CONSTANT_MethodHandle	15
+CONSTANT_MethodType	16
+CONSTANT_InvokeDynamic	18
+```
+然后我们继续分析
+### 第1个常量的，u1的类型标志是：0a，也就是：CONSTANT_Methodref 即：方法的符号引用
+那么方法的符号引用的结构式：
+```
+CONSTANT_Methodref_info {
+    u1 tag;
+    u2 class_index;
+    u2 name_and_type_index;
+}
+```
+那么解下来的u2即类的索引值为：0x0004，即第4个常量；
+再接下来是u2类型的名称和类型索引值为：0x0014，即第20个常量
+
+以上第一个常量类型为CONSTANT_Methodref 方法的符号引用，已经分析完了，我们继续：
+
+### 第2个常量：
+类型09:CONSTANT_Fieldref 是字段的符号引用
+字段的符号应用结构是：
+```
+CONSTANT_Fieldref_info {
+    u1 tag;
+    u2 class_index;
+    u2 name_and_type_index;
+}
+```
+09类型后，u2表示类索引的值是：0x0003，表示类在第三个常量
+然后u2是:0x0015 名称和类型的索引在第21个常量
+
+### 第3个常量：
+类型07：CONSTANT_Class，代表一个类或接口的符号引用，结构是：
+```
+CONSTANT_Class_info {
+    u1 tag;
+    u2 name_index;
+}
+```
+标志位不再说了，所有常量的第一个u1都是标志位，那么后边的u2类型就是值了，索引是：0x0016即22，第22个常量是类的名称
+
+### 第4个常量：
+类型07：同上
+索引在：0x0017 第23，第23个常量是类或者接口的名称
+
+### 第五个常量：
+类型：01 CONSTANT_Utf8
+结构：
+```
+CONSTANT_Utf8_info {
+    u1 tag;
+    u2 length;
+    u1 bytes[length];
+}
+```
+字符串长度：0002,那长度就是2个字节
+即：0x74 0x66 表示：tf,即咱们java文件里定义的变量名称：tf
+
+
