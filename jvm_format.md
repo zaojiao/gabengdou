@@ -303,6 +303,7 @@ CONSTANT_Utf8_info {
 在JDK的bin目录里，Oracle公司已经为我们准备了专门用于分析Class文件字节码的工具：javap
 如下可以跟我们手工计算的内容进行对比：
 命令：javap -verbose Test.class
+```
 Classfile /Users/mark/eclipse/workspace/mns-strategy-srv/target/classes/com/nn/inf/strategy/srv/Test.class
   Last modified 2017-12-10; size 529 bytes
   MD5 checksum fb8b18587a4bf7298dc0d01b5ce85f90
@@ -382,6 +383,9 @@ Constant pool:
             0       6     1    tf   Ljava/lang/String;
 }
 SourceFile: "Test.java"
+```
+
+
 
 
 
