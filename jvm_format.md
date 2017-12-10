@@ -211,45 +211,40 @@ CONSTANT_Utf8_info {
 
 ### 第14个常量
 类型 01 结构同上
-长度 0x0004 内容：7468 6973
-翻译过来：this
-
-### 第15个常量
-类型 01 结构同上
 长度 0x0005 内容：6765 7454 66
 翻译过来：getTf
 get的方法名
 
-### 第16个常量
+### 第15个常量
 类型 01 结构同上
 长度 0x0014 即：20 内容：2829 4c6a 6176 612f 6c61 6e67
 2f53 7472 696e 673b
 翻译过来：()Ljava/lang/String;
 
-### 第17个常量
+### 第16个常量
 类型 01 结构同上
 长度 0x0005 内容：73 6574 5466
 翻译过来：setTf
 
-### 第18个常量
+### 第17个常量
 类型 01 结构同上
 长度 0x0015 长度：21 内容：28 4c6a 6176 612f 6c61 6e67 2f53
 7472 696e 673b 2956
 翻译过来：(Ljava/lang/String;)V
 
-### 第19个常量
+### 第18个常量
 类型 01 结构同上
 长度 0x000a 内容：53 6f75 7263
 6546 696c 65
 翻译过来：SourceFile
 
-### 第20个常量
+### 第19个常量
 类型 01 结构同上
 长度 0x0009 内容：5465 7374 2e6a 6176
 61
 翻译过来：Test.java
 
-### 第21个常量
+### 第20个常量
 类型 0c 即：CONSTANT_NameAndType
 结构：
 ```
@@ -262,7 +257,7 @@ CONSTANT_NameAndType_info {
 name_index: 0x0007 索引：#7      // <init>
 descriptor_index: 0008 索引：#8  // ()V
 
-### 第22个常量
+### 第21个常量
 类型 0c 结构同上
 即：CONSTANT_NameAndType
 结构：
@@ -276,7 +271,7 @@ CONSTANT_NameAndType_info {
 name_index: 0x0005 索引：#5      // tf
 descriptor_index: 0006 索引：#6  // Ljava/lang/String;
 
-### 第23个常量：
+### 第22个常量：
 类型：01 CONSTANT_Utf8
 结构：
 ```
@@ -291,7 +286,7 @@ CONSTANT_Utf8_info {
 792f 7372 762f 5465 7374
 即：com/nn/inf/strategy/srv/Test
 
-### 第24个常量：
+### 第23个常量：
 类型：01 CONSTANT_Utf8
 结构：同上
 字符串长度：0010 即：6a 6176
@@ -299,6 +294,94 @@ CONSTANT_Utf8_info {
 即：java/lang/Object
 
 
+### u2：access_flags
+值：0x0021
+
+
+--------------- 我是帅气的分隔符 --------------------
+
+在JDK的bin目录里，Oracle公司已经为我们准备了专门用于分析Class文件字节码的工具：javap
+如下可以跟我们手工计算的内容进行对比：
+命令：javap -verbose Test.class
+Classfile /Users/mark/eclipse/workspace/mns-strategy-srv/target/classes/com/nn/inf/strategy/srv/Test.class
+  Last modified 2017-12-10; size 529 bytes
+  MD5 checksum fb8b18587a4bf7298dc0d01b5ce85f90
+  Compiled from "Test.java"
+public class com.nn.inf.strategy.srv.Test
+  minor version: 0
+  major version: 51
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #4.#20         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #3.#21         // com/nn/inf/strategy/srv/Test.tf:Ljava/lang/String;
+   #3 = Class              #22            // com/nn/inf/strategy/srv/Test
+   #4 = Class              #23            // java/lang/Object
+   #5 = Utf8               tf
+   #6 = Utf8               Ljava/lang/String;
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               LocalVariableTable
+  #12 = Utf8               this
+  #13 = Utf8               Lcom/nn/inf/strategy/srv/Test;
+  #14 = Utf8               getTf
+  #15 = Utf8               ()Ljava/lang/String;
+  #16 = Utf8               setTf
+  #17 = Utf8               (Ljava/lang/String;)V
+  #18 = Utf8               SourceFile
+  #19 = Utf8               Test.java
+  #20 = NameAndType        #7:#8          // "<init>":()V
+  #21 = NameAndType        #5:#6          // tf:Ljava/lang/String;
+  #22 = Utf8               com/nn/inf/strategy/srv/Test
+  #23 = Utf8               java/lang/Object
+{
+  public com.nn.inf.strategy.srv.Test();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 3: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/nn/inf/strategy/srv/Test;
+
+  public java.lang.String getTf();
+    descriptor: ()Ljava/lang/String;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field tf:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/nn/inf/strategy/srv/Test;
+
+  public void setTf(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field tf:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 12: 0
+        line 13: 5
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/nn/inf/strategy/srv/Test;
+            0       6     1    tf   Ljava/lang/String;
+}
+SourceFile: "Test.java"
 
 
 
