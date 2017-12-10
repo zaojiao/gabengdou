@@ -100,7 +100,8 @@ CONSTANT_MethodType	16
 CONSTANT_InvokeDynamic	18
 ```
 然后我们继续分析
-### 第1个常量的，u1的类型标志是：0a，也就是：CONSTANT_Methodref 即：方法的符号引用
+### 第1个常量
+u1的类型标志是：0a，也就是：CONSTANT_Methodref 即：方法的符号引用
 那么方法的符号引用的结构式：
 ```
 CONSTANT_Methodref_info {
@@ -141,7 +142,7 @@ CONSTANT_Class_info {
 类型07：同上
 索引在：0x0017 第23，第23个常量是类或者接口的名称
 
-### 第五个常量：
+### 第5个常量：
 类型：01 CONSTANT_Utf8
 结构：
 ```
@@ -153,5 +154,15 @@ CONSTANT_Utf8_info {
 ```
 字符串长度：0002,那长度就是2个字节
 即：0x74 0x66 表示：tf,即咱们java文件里定义的变量名称：tf
+
+### 第6个常量
+类型01 CONSTANT_Utf8
+结构同上
+字符串长度：0x0012即：18
+值：4c6a 6176 612f 6c61 6e67 2f53 7472
+696e 673b
+翻译过来是：Ljava/lang/String;
+是咱们定义的名称为tf的变量的类型，java.lang.String类型
+
 
 
