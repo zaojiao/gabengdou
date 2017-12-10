@@ -296,6 +296,42 @@ CONSTANT_Utf8_info {
 
 ### u2：access_flags
 值：0x0021
+```
+Table 4.1. Class access and property modifiers
+Flag Name	Value	Interpretation
+ACC_PUBLIC	0x0001	Declared public; may be accessed from outside its package.
+ACC_FINAL	0x0010	Declared final; no subclasses allowed.
+ACC_SUPER	0x0020	Treat superclass methods specially when invoked by the invokespecial instruction.
+ACC_INTERFACE	0x0200	Is an interface, not a class.
+ACC_ABSTRACT	0x0400	Declared abstract; must not be instantiated.
+ACC_SYNTHETIC	0x1000	Declared synthetic; not present in the source code.
+ACC_ANNOTATION	0x2000	Declared as an annotation type.
+ACC_ENUM	0x4000	Declared as an enum type.
+```
+access_flags的信息表
+我们是一个普通的public修饰的类，并且是用jdk1.2之后的编译器编译，所以access_flags标志位：0x0001|0x0020 = 0x0021
+
+### this_class u2
+0x0003 常量池的#3项
+最终指向的值是String 即：com/nn/inf/strategy/srv/Test
+
+### super_class u2
+0x0004 常量池的#4项
+最终指向值String 即：java/lang/Object
+
+### interfaces_count u2
+0x0000 也即：0
+即表示该类没有实现任何接口
+
+### interfaces[interfaces_count]  u2
+由于 interfaces_count 为0，因此这一项不再占用任何字节，也即没有字节表示
+
+### fields_count u2
+0x0001
+接口或类中声明的变量的个数，本例中为1
+
+
+
 
 
 --------------- 我是帅气的分隔符 --------------------
