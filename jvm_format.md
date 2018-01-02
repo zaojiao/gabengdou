@@ -338,9 +338,35 @@ access_flags的信息表
 0x0001
 接口或类中声明的变量的个数，本例中为1
 
+### 字段表
+结构：
+field_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
 
+access_flags 0x0002 代表private私有属性
+name_index 0x0005 为常量池中第5个常量，值：tf，即常量名称
+descriptor_index 为常量池第6个常量，值："Ljava/lang/String;", 注意分号代表结束
+attributes_count 为0x0000 表示0个属性
 
+### 方法表
+看到方法表，发现方法的名称、方法描述符、属性表
+其中方法描述代表了方法的返回值、参数等信息
+method_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}
 
+### 属性表
+属性表有很多，21项在jdk1.7上，其中Code属性最为重要，我们可能也最关注，代表的是方法代码的字节码指令；
+关于字节码指令，找时间认真详细的写一下，是比较重要的部分，这里只一笔带过先；
 
 --------------- 我是帅气的分隔符 --------------------
 
@@ -429,6 +455,7 @@ Constant pool:
 SourceFile: "Test.java"
 ```
 
+### 最后讲讲字节码指令
 
 
 
