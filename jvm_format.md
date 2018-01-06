@@ -391,11 +391,11 @@ ACC_STRICT	0x0800	Declared strictfp; floating-point mode is FP-strict.
 ACC_SYNTHETIC	0x1000	Declared synthetic; not present in the source code.
 ```
 第一个：
-access_flags 0x0001 代表ACC_PUBLIC
-name_index 0x0007 方法简单名称，常量池中第7项即：<init>
-descriptor_index 0x0008 方法描述符，常量池第8项：()V， 表示没有参数返回值为Void
-attributes_count 0x0001 属性表中属性个数，即 1
-attributes[attributes_count] 接下来就是属性了
+access_flags 0x0001 代表ACC_PUBLIC  
+name_index 0x0007 方法简单名称，常量池中第7项即：<init>  
+descriptor_index 0x0008 方法描述符，常量池第8项：()V， 表示没有参数返回值为Void  
+attributes_count 0x0001 属性表中属性个数，即 1  
+attributes[attributes_count] 接下来就是属性了  
 属性表结构为：
     ```
     attribute_info {
@@ -451,18 +451,18 @@ Code_attribute {
 ```
 
 属性为：
-attribute_name_index 0x0009 属性名称索引，第9项常量池：Code, Code是类文件中
-，最重要的一个属性，如果把类文件的内容分为代码和元数据两部分的话，那么Code属性就是里边唯一一个描述描述代码的部分了
-attribute_length 0x0000002f 属性长度为：47  
-max_stack 0x0001 操作数栈深度最大值：1
-max_locals 局部变量所需存储空间 0x0001，计量单位是：slot，是虚拟机为局部变量分配内存所使用的最小单位，byte、char、float、int、short、boolean和returnAddress等长度不超过32位的数据结构，每个局部变量占用一个Slot，而double和long这两种64位局部变量真用两个Slot存储
-code_length 0x00 0000 05 指用来存储java代码的字节码指令的长度，本例长度为：5
-接下来就是5个指令：2a b7 00 01 b1
-0x2a：助记符 aload_0 将第一个引用类型本地变量推送至栈顶
-0xb7：助记符 invokespecial 调用超类构造方法，实例初始化方法，私有方法
-该指令有一个u2类型的参数说明调用哪一个，指向常量池中一个CONSTANT_METHOD_INFO的类型常量，即此方法的方法符号引用
-0x0001：即常量池中第一个常量，是init()方法的方法描述符
-0xb1：助记符 return 从当前方法返回void
+attribute_name_index 0x0009 属性名称索引，第9项常量池：Code, Code是类文件中  
+，最重要的一个属性，如果把类文件的内容分为代码和元数据两部分的话，那么Code属性就是里边唯一一个描述描述代码的部分了  
+attribute_length 0x0000002f 属性长度为：47   
+max_stack 0x0001 操作数栈深度最大值：1  
+max_locals 局部变量所需存储空间 0x0001，计量单位是：slot，是虚拟机为局部变量分配内存所使用的最小单位，byte、char、float、int、short、boolean和returnAddress等长度不超过32位的数据结构，每个局部变量占用一个Slot，而double和long这两种64位局部变量真用两个Slot存储  
+code_length 0x00 0000 05 指用来存储java代码的字节码指令的长度，本例长度为：5  
+接下来就是5个指令：2a b7 00 01 b1  
+0x2a：助记符 aload_0 将第一个引用类型本地变量推送至栈顶  
+0xb7：助记符 invokespecial 调用超类构造方法，实例初始化方法，私有方法  
+该指令有一个u2类型的参数说明调用哪一个，指向常量池中一个CONSTANT_METHOD_INFO的类型常量，即此方法的方法符号引用  
+0x0001：即常量池中第一个常量，是init()方法的方法描述符  
+0xb1：助记符 return 从当前方法返回void  
 
 ### 属性表
 属性表有很多，21项在jdk1.7上，其中Code属性最为重要，我们可能也最关注，代表的是方法代码的字节码指令；
