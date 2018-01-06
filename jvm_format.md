@@ -451,7 +451,7 @@ Code_attribute {
 ```
 
 属性为：
-attribute_name_index 0x0009 属性名称索引：第9项常量池：Code, Code是类文件中
+attribute_name_index 0x0009 属性名称索引，第9项常量池：Code, Code是类文件中
 ，最重要的一个属性，如果把类文件的内容分为代码和元数据两部分的话，那么Code属性就是里边唯一一个描述描述代码的部分了
 attribute_length 0x0000002f 属性长度为：47  
 max_stack 0x0001 操作数栈深度最大值：1
