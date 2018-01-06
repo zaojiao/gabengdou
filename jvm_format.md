@@ -373,7 +373,7 @@ method_info {
     attribute_info attributes[attributes_count];
 }
 ```
-
+```
 Table 4.5. Method access and property flags
 
 Flag Name	Value	Interpretation
@@ -389,7 +389,7 @@ ACC_NATIVE	0x0100	Declared native; implemented in a language other than Java.
 ACC_ABSTRACT	0x0400	Declared abstract; no implementation is provided.
 ACC_STRICT	0x0800	Declared strictfp; floating-point mode is FP-strict.
 ACC_SYNTHETIC	0x1000	Declared synthetic; not present in the source code.
-
+```
 第一个：
 access_flags 0x0001 代表ACC_PUBLIC
 name_index 0x0007 方法简单名称，常量池中第7项即：<init>
@@ -406,6 +406,7 @@ attributes[attributes_count] 接下来就是属性了
     ```  
 
 属性表的名称索引值：
+```
 Table 4.6. Predefined class file attributes
 Attribute	Section	Java SE	class file
 ConstantValue	§4.7.2	1.0.2	45.3
@@ -428,7 +429,7 @@ RuntimeVisibleParameterAnnotations	§4.7.18	5.0	49.0
 RuntimeInvisibleParameterAnnotations	§4.7.19	5.0	49.0
 AnnotationDefault	§4.7.20	5.0	49.0
 BootstrapMethods	§4.7.21	7	51.0
-
+```
 Code的结构为：
 ```
 Code_attribute {
