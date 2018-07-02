@@ -25,4 +25,4 @@ https://www.ibm.com/developerworks/cn/linux/thread/posix_thread2/index.html
 https://www.ibm.com/developerworks/cn/linux/thread/posix_thread3/index.html
 
 这几年其实看了不少东西，但很多没有坚持，总是各种原因就停下来了，今天想想觉得最主要的问题就是不够贪心，总是觉得这样还好，这样就好，目标感不明确，为达目的誓不罢休才行。
-the world is only you and the target. You need focus.
+The world is only you and the target. You need focus.
