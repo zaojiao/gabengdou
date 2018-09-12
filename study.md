@@ -32,3 +32,6 @@ ProductServiceImpl$$EnhancerBySpringCGLIB$$7604b631.queryProductList(<generated>
 
 Commons-Pool 原理和源码阅读解析
 spring-web 模块源码解析
+
+#### 2018-09-12
+osgi技术学习、httpClients博客编写
