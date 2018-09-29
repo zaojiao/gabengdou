@@ -30,8 +30,8 @@ The world is only you and the target. You need focus.
 潜心学习：
 ProductServiceImpl$$EnhancerBySpringCGLIB$$7604b631.queryProductList(<generated>)
 
-Commons-Pool 原理和源码阅读解析
-spring-web 模块源码解析
+#### Commons-Pool 原理和源码阅读解析
+#### spring-web 模块源码解析
 
 #### 2018-09-12
 osgi技术学习、httpClients博客编写
@@ -83,6 +83,10 @@ lookup().static.find() 动态调用的原理 书中做了解析
 各有优劣 寄存器快速，但可移植性差
 栈执行 命令增多、效率不高、但可移植性好
 
+#### 2018.09.28 
+深入虚拟机 第9章：编译器早期优化 结束 今天开始编译器晚期优化 
+后续 第10、11章 内存模型、线程锁优化等 这本书就结束了 计划十一期间争取结束掉JVM的学习
 
+#### myBatis 原理学习 + 简单模仿实现
 
 #### Netty学习
