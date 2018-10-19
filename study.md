@@ -91,3 +91,13 @@ lookup().static.find() 动态调用的原理 书中做了解析
 #### myBatis 原理学习 + 简单模仿实现
 
 #### Netty学习
+
+#### 根据技能图现在主要是研修DB部分
+深入Mysql 第5章、第6章 目前是索引部分学习
+
+Servlet原理解析IBM文章回执学习、SpringBeans部分学习（expert one-on-one Develop without EJB学习）
+
+索引部分的疑问：多列索引的存储结构里，索引是怎么存储的
+MyISAM的多列压缩索引如何存储
+
+
